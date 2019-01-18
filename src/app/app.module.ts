@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -7,11 +12,12 @@ import { CarteComponent } from './carte/carte.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ContactComponent } from './contact/contact.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainNavComponent } from './main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-
+const routes: Routes = [
+ { path: ' ', component: HomeComponent },
+ { path: 'carte', component: CarteComponent },
+ { path: 'reservation', component: ReservationComponent },
+ { path: 'contact', component: ContactComponent }
+];
 
 @NgModule({
   declarations: [
@@ -30,7 +36,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
